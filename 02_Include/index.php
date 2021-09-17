@@ -15,7 +15,7 @@
             require_once ("commands/cmd1.php");
             break;
         case 2:
-            require_once ("commands/cmd2.php");
+            require_once ("array_fetch_json/index.php");
             break;
         default:
             require_once ("errors/cmdErr.php");

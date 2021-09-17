@@ -33,7 +33,7 @@
                         <a class="nav-link" aria-current="page" href="<?=$_SERVER['PHP_SELF']?>?cmd=1">Cmd 1</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="<?=$_SERVER["PHP_SELF"]?>?cmd=2">Cmd 2</a>
+                        <a class="nav-link" aria-current="page" href="<?=$_SERVER["PHP_SELF"]?>?cmd=2">Array Json</a>
                     </li>
                 </ul>
             </div>
@@ -48,5 +48,5 @@
         <aside class="col-3">
             <?php require_once ("aside.php"); ?>
         </aside>
-        <main class="col-9">
+        <main class="col-9" id="main">
 <?php

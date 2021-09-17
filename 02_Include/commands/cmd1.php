@@ -1,5 +1,6 @@
 <form action="<?=$_SERVER["PHP_SELF"]?>?cmd=1" method="post">
-    <input type="text" name="userName">
+    <input type="text" name="userName"
+           value="<?=(isset($_POST["userName"]))?$_POST["userName"]:"" ?>" >
     <input type="submit" value="Send">
 </form>
 <?php
