@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div style="background: gray; border: 1px solid red; padding: 20px; margin: 20px">
+    <span style="background: antiquewhite">Content</span>
+</div>
+
+
+<ul style="background: blue;" id="main" mydata="testData">
+
+</ul>
+
+<button onclick="add()"> Add El</button>
+<button onclick="show()"> Show </button>
+
+<script>
+    function show() {
+        let ul = document.getElementById("main");
+        console.log(ul.style.background);
+        console.log(ul.attributes.getNamedItem("mydata"));
+    }
+
+    function add() {
+        let ul = document.getElementById("main");
+
+        let li = document.createElement("li");
+        li.innerText = "text Info";
+
+        ul.appendChild(li);
+    }
+
+
+</script>
+
+</body>
+</html>

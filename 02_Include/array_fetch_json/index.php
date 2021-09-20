@@ -7,7 +7,7 @@
             { /*console.log(response);*/ return response.json();})
         .then(data => // получаю данные и что то с ними делаю
             {
-                console.log(data); // Контроль полученных данных
+                // console.log(data); // Контроль полученных данных
 
                 // Если я знаю имена полей
 
@@ -28,7 +28,27 @@
                     li.appendChild(label);
                     if (Array.isArray(data[dataKey])) { // проверяю, не массив ли
                         let div = document.createElement("div");
+
+
+                        for (const dataInArr in data[dataKey]) { // Перебрать массив по key => val
+                            console.log(data[dataKey][dataInArr]);
+                            let labelForArr = document.createElement("label");
+                            labelForArr.innerText = data[dataKey][dataInArr].type; // тип телефона или мыла
+
+                            let inputForArr = document.createElement("input");
+                            inputForArr.value = data[dataKey][dataInArr].value;
+
+                            div.appendChild(labelForArr);
+                            div.appendChild(inputForArr);
+
+
+                        }
+
+
+                        /*
+
                         for (let i = 0; i < data[dataKey].length; i++) {
+
                             let check = document.createElement("input");
                             check.type = "checkbox";
                             check.checked = true;
@@ -40,6 +60,8 @@
                             label.innerText = data[dataKey][i];
                             div.appendChild(label);
                         }
+
+                         */
                         li.appendChild(div);
                     } else {
                         let input = document.createElement("input");
