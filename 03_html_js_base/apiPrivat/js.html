@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<code>
+    [{"ccy":"USD","base_ccy":"UAH","buy":"26.50000","sale":"26.90000"}
+    ,{"ccy":"EUR","base_ccy":"UAH","buy":"31.00000","sale":"31.60000"}
+    ,{"ccy":"RUR","base_ccy":"UAH","buy":"0.35000","sale":"0.38000"}
+    ,{"ccy":"BTC","base_ccy":"USD","buy":"42697.4159","sale":"47191.8807"}]
+</code>
+<main id="main">
+</main>
+
+    <script>
+        fetch("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            let main = document.getElementById("main");
+            let table = document.createElement("table");
+            for (let i = 0; i < data.length; i++) {
+                console.log("1 - создаю строку (4 раза)");
+                let tr = document.createElement("tr");
+                console.log("2 - наполняю ячейки строки (4 раза - 4 строки)");
+                tr.innerHTML = ""
+                    + "<td>" + data[i].ccy + " </td>"
+                    + "<td>" + data[i].base_ccy + " </td>"
+                    + "<td>" + data[i].buy + " </td>"
+                    + "<td>" + data[i].sale + " </td>"
+                ;
+                console.log("монтирую (добавляю) строки в таблицу (4 раза)")
+                table.appendChild(tr);
+            }
+            console.log("монтирую таблицу в нужное место (main)");
+            main.appendChild(table);
+        })
+        .catch(err=>console.log(err));
+    </script>
+
+</body>
+</html>
