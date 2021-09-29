@@ -42,6 +42,10 @@
                     </li>-->
                     <li class="nav-item">
                         <!-- Построю ссылку на себя, и передам переменную GET с именем cmd равную 1 -->
+                        <a class="nav-link" aria-current="page" href="<?=$_SERVER['PHP_SELF']?>?cmd=4">NovaPoshta</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Построю ссылку на себя, и передам переменную GET с именем cmd равную 1 -->
                         <a class="nav-link" aria-current="page" href="<?=$_SERVER['PHP_SELF']?>?cmd=3">Trello</a>
                     </li>
                     <li class="nav-item">

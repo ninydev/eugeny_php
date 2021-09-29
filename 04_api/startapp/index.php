@@ -20,6 +20,9 @@
         case 3:
             require_once ("commands/trello.php");
             break;
+        case 4:
+            require_once ("commands/npget.php");
+            break;
         default:
             require_once ("errors/cmdErr.php");
 
