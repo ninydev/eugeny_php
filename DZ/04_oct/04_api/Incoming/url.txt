@@ -1,0 +1,7 @@
+https://api.startapp.com/pub/report/1.0
+?
+partner=174388014
+&token=5c9e4f73481dc072bfb662ca2133cffc
+&startDate=20210910
+&endDate=20210910
+&dimension=prod,segId,adType,country

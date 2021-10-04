@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="onDocumentLoad()">
+
+<select id="region" onchange="onChangeRegion()"></select>
+<br>
+<select id="city" onchange="onChangeCity()"></select>
+<br>
+<select id="dep"></select>
+
+<div id="depInfo"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    
+    // Запросить список департаментов (отделений) в городе
+    function onChangeCity() {
+        $.ajax({
+            type: 'POST',
+            crossDomain: true,
+            dataType: 'jsonp',
+            url: 'https://api.novaposhta.ua/v2.0/json/',
+            data: {
+                apiKey: "3c81d19dc6c4375bc278f4c329fb03cb",
+                modelName: "AddressGeneral",
+                calledMethod: "getWarehouses",
+                methodProperties: {
+                    CityRef: document.getElementById("city").value
+                },
+            },
+            success: echoDep
+        });
+    }
+    let depList;
+    function echoDep(responce) {
+        depList =  responce;
+        document.getElementById("dep").innerHTML = "";
+        for (let i = 0; i < responce.data.length; i++) {
+            console.log(responce.data[i]);
+            let o = document.createElement("option");
+            o.innerText = responce.data[i].DescriptionRu;
+            o.value = responce.data[i].Ref;
+            document.getElementById("dep").appendChild(o);
+        }
+    }
+    
+    // Запросить список городов в области
+    function onChangeRegion() {
+        let reg = document.getElementById("region").value;
+        console.log(reg);
+        $.ajax({
+            type: 'POST',
+            crossDomain: true,
+            dataType: 'jsonp',
+            url: 'https://api.novaposhta.ua/v2.0/json/',
+            data: {
+                apiKey: "3c81d19dc6c4375bc278f4c329fb03cb",
+                modelName: "Address",
+                calledMethod: "getCities",
+                methodProperties: {
+                    AreaRef: reg
+                },
+            },
+            success: echoCites
+        });
+    }
+
+    // Вывести список городов
+    function echoCites(responce) {
+        if (responce.success != true){
+            console.log(responce.errors);
+            console.log(responce.warnings);
+        }
+        // console.log("Incoming success: " + responce);
+        // console.log("Incoming length: " + responce.data.length);
+
+        document.getElementById("city").innerHTML = "";
+        for (let i = 0; i < responce.data.length; i++) {
+            // console.log(responce.data[i]);
+            let o = document.createElement("option");
+            o.innerText = responce.data[i].DescriptionRu;
+            o.value = responce.data[i].Ref;
+            document.getElementById("city").appendChild(o);
+        }
+    }
+
+    // Запросить список регионов
+    function onDocumentLoad() {
+	console.log("start");
+
+        $.ajax({
+            type: 'POST',
+            crossDomain: true,
+            dataType: 'jsonp',
+            url: 'https://api.novaposhta.ua/v2.0/json/',
+            data: {
+                apiKey: "3c81d19dc6c4375bc278f4c329fb03cb",
+                modelName: "Address",
+                calledMethod: "getAreas",
+                methodProperties: {}
+            },
+            success: echoRegions
+        });
+
+    }
+
+    // Вывести все регионы
+    function echoRegions(responce) {
+        for (let i = 0; i < responce.data.length; i++) {
+            // console.log(responce.data[i]);
+            let o = document.createElement("option");
+            o.innerText = responce.data[i].DescriptionRu;
+            o.value = responce.data[i].Ref;
+            document.getElementById("region").appendChild(o);
+        }
+    }
+
+</script>
+
+
+</body>
+</html>

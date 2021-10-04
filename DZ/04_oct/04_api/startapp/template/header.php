@@ -40,10 +40,9 @@
                     <!--<li class="nav-item">
                         <a class="nav-link" aria-current="page" href="<?php echo $_SERVER['PHP_SELF'];?>">Home</a>
                     </li>-->
-
                     <li class="nav-item">
                         <!-- Построю ссылку на себя, и передам переменную GET с именем cmd равную 1 -->
-                        <a class="nav-link" aria-current="page" href="<?=$_SERVER['PHP_SELF']?>?cmd=5">NovaPoshta php</a>
+                        <a class="nav-link" aria-current="page" href="<?=$_SERVER['PHP_SELF']?>?cmd=5">NovaPoshta1</a>
                     </li>
                     <li class="nav-item">
                         <!-- Построю ссылку на себя, и передам переменную GET с именем cmd равную 1 -->
@@ -60,10 +59,6 @@
                     <li class="nav-item">
                         <!-- Построю ссылку на себя, и передам переменную GET с именем cmd равную 1 -->
                         <a class="nav-link" aria-current="page" href="<?=$_SERVER['PHP_SELF']?>?cmd=2">MySql</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- Построю ссылку на себя, и передам переменную GET с именем cmd равную 1 -->
-                        <a class="nav-link" aria-current="page" href="<?=$_SERVER['PHP_SELF']?>?cmd=11">ini</a>
                     </li>
                 </ul>
             </div>

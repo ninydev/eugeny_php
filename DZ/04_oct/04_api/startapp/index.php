@@ -24,10 +24,7 @@
             require_once ("commands/npget.php");
             break;
         case 5:
-            require_once ("commands/npphp.php");
-            break;
-        case 11:
-            require_once ("commands/ini.php");
+            require_once ("commands/npget1.php");
             break;
         default:
             require_once ("errors/cmdErr.php");
