@@ -26,6 +26,9 @@
         case 5:
             require_once ("commands/npphp.php");
             break;
+        case 6:
+            require_once ("commands/more30/view.php");
+            break;
         case 11:
             require_once ("commands/ini.php");
             break;

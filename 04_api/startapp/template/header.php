@@ -40,7 +40,10 @@
                     <!--<li class="nav-item">
                         <a class="nav-link" aria-current="page" href="<?php echo $_SERVER['PHP_SELF'];?>">Home</a>
                     </li>-->
-
+                    <li class="nav-item">
+                        <!-- Построю ссылку на себя, и передам переменную GET с именем cmd равную 1 -->
+                        <a class="nav-link" aria-current="page" href="<?=$_SERVER['PHP_SELF']?>?cmd=6">NovaPoshta More30</a>
+                    </li>
                     <li class="nav-item">
                         <!-- Построю ссылку на себя, и передам переменную GET с именем cmd равную 1 -->
                         <a class="nav-link" aria-current="page" href="<?=$_SERVER['PHP_SELF']?>?cmd=5">NovaPoshta php</a>
