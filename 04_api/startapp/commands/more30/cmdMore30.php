@@ -25,8 +25,9 @@ if(isset($_GET["AreaRef"])) {
 
 $data = GetResponse($modelName, $calledMethod, $methodProperties);
 
-//var_dump( $data);
-$str = json_encode($data, 0, 99999999999);
+// var_dump( $data);
+//$str = json_encode($data, 0, 99999999999);
+echo "<hr>";
 echo json_encode($data, 0, 99999999999);;
 
 
